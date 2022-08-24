@@ -2,8 +2,6 @@ import { createContext, userContext, useState } from "react"
 import { STORAGE_KEY_USER } from "../const/storageKeys"
 import { storageRead } from "../const/storage"
 
-
-
 const UserContext = createContext()
 
 export const useUser = () => {
