@@ -1,7 +1,9 @@
 import { createHeaders} from  './index'
+
+
 const apiURL = process.env.REACT_APP_API_URL
 
-const checkForUser = async () =>{
+const checkForUser = async (username) =>{
     try{
         const response = fetch(`${apiURL}username=${username}`)
         if(!response.ok){
@@ -11,7 +13,7 @@ const checkForUser = async () =>{
         return [null, data]
 
     }catch(error){
-        return [error.message, data]
+        return [error.message, []]
 
     }
 }
@@ -51,7 +53,22 @@ export const loginUser = async (username) =>{
         return [null, user.pop()]
     }
 
-    const[createError, newUser] = createUser(username);
+    return await createUser(username);
 }
 
-[error, user]
+export const userById = async (userId) =>{
+    try{
+        const response = await fetch(`${apiURL}/${userId}`)
+
+        if(!response.ok){
+            throw new Error("Could not fetch user")
+        }
+
+        const user = await response.json()
+        return[null, user]
+    }
+    catch(error){
+        return [error.message, null]
+
+    }
+}

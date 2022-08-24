@@ -8,6 +8,7 @@ const ProfileOrderHistory = ({orders}) =>{
     return (
         <section>
             <h4>Your order history </h4>
+                {orderList.length === 0 && <p>You have no order yet</p>}
             <ul>{orderList}</ul>
         </section>
     )

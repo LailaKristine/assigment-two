@@ -1,4 +1,4 @@
-const ProfileHeader = () =>{
+const ProfileHeader = ({username}) =>{
     return (
 
         <header>

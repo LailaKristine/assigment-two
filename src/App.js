@@ -4,12 +4,14 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Login from './component/views/Login';
 import Profile from './component/views/Profile';
 import Orders from './component/views/Orders';
+import Navbar from './component/Navbar/Navbar';
 
 function App() {
 
   return (
     <BrowserRouter>
       <div className="App">
+        <Navbar/>
         <Routes>
         <Route path="/" element={<Login/>}/>
         <Route path="/orders" element={<Orders/>}/>
@@ -22,3 +24,4 @@ function App() {
 }
 
 export default App;
+ 
