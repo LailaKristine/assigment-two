@@ -10,7 +10,8 @@ import ProfileOrderHistory from "../Profile/ProfileOrderHistory"
 
 const Profile = () => {
 
-    const { user, setUser } = useUser();
+    const { user, setUser}  = useUser();
+   
 
     useEffect(() => {
 
@@ -23,7 +24,7 @@ const Profile = () => {
         }
         findUser();
 
-    },[ setUser, user.id ])
+    },[ setUser, user ])
 
     return (
         <>

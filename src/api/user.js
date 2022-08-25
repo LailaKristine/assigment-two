@@ -1,11 +1,10 @@
 import { createHeaders} from  './index'
 
-
 const apiURL = process.env.REACT_APP_API_URL
 
 const checkForUser = async (username) =>{
     try{
-        const response = fetch(`${apiURL}username=${username}`)
+        const response = await fetch( `${apiURL}?username=${username}` )
         if(!response.ok){
             throw new Error(`Could not complete request.`)
         }

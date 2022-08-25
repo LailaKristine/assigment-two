@@ -1,12 +1,11 @@
 import UserProvider from "./UserContext"
 
-const { Children } = require("react")
 
-const AppContext = () =>{
+const AppContext = ({children}) =>{
 
     return(
         <UserProvider>
-            {Children}
+            {children}
         </UserProvider>
     )
 }

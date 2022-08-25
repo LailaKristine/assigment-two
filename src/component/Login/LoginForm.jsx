@@ -3,8 +3,8 @@ import { useForm } from "react-hook-form"
 import { loginUser } from "../../api/user"
 import { storageSave } from "../../utils/storage"
 import { useNavigate } from "react-router-dom"
-import { useUser } from "../../context/UserContext"
 import { STORAGE_KEY_USER } from "../../const/storageKeys"
+import { useUser } from "../../context/UserContext"
 
 const usernameConfig = {
     required: true,
@@ -26,7 +26,7 @@ const LoginForm = () => {
     //Side Effect 
     useEffect(() => {
         if(user!=null){
-            navigate('/profile')
+            navigate('/orders')
         }
     }, [user, navigate]) //Empty Dependency - Only run once
 

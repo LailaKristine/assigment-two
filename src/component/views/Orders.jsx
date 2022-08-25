@@ -34,7 +34,9 @@ const COFFEES = [
 const Orders = () => {
 
     const [coffee, setCoffee] = useState(null)
+    
     const { user, setUser } = useUser()
+    
 
     const handleCoffeeClicked = (coffeeId) =>{
         setCoffee(COFFEES.find(coffee => coffee.id === coffeeId))

@@ -3,17 +3,13 @@ import { useUser } from "../../context/UserContext"
 
 const Navbar = () => {
 
-    const { user } = useUser()
+    const { user } = useUser
     return (
         <nav>
-            <ul>
-                <li>Coffee Orders</li>
-            </ul>
-
             {user !== null&&
                 <ul>
                     <li>
-                        <NavLink to="/order">Orders</NavLink>
+                        <NavLink to="/orders">Orders</NavLink>
                     </li>
                     <li>
                         <NavLink to="/profile">Profile</NavLink>

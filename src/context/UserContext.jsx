@@ -1,11 +1,11 @@
-import { createContext, userContext, useState } from "react"
+import { createContext, useContext, useState } from "react"
 import { STORAGE_KEY_USER } from "../const/storageKeys"
 import { storageRead } from "../utils/storage"
 
 const UserContext = createContext()
 
 export const useUser = () => {
-    return userContext(UserContext)
+    return useContext(UserContext)
 }
 
 //Provider  -> managing state
