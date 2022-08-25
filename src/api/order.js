@@ -8,7 +8,7 @@ export const orderAdd = async (user, order) =>{
         method: 'PATCH',
         headers: createHeaders,
         body: JSON.stringify({
-            orders: [...user.orders, order]
+            orders: [...user.order, order]
         })
     })
 
@@ -23,8 +23,8 @@ export const orderAdd = async (user, order) =>{
         return [error.message, null]
 
     }
-
 }
+
 
 export const orderClearHistory = async (userId) =>{
     try{
