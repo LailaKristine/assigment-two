@@ -13,7 +13,6 @@ const OrderForm =({onOrder}) =>{
             <label htmlFor="order-notes">Order Notes: </label>
             <input type="text" {...register('orderNotes')} placeholder="No sugar, extra milk" />
         </fieldset>
-
         <button type="submit">Order</button>
         </form>
     )
