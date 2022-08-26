@@ -34,9 +34,7 @@ const COFFEES = [
 const Orders = () => {
 
     const [coffee, setCoffee] = useState(null)
-    
     const { user, setUser } = useUser()
-    
 
     const handleCoffeeClicked = (coffeeId) =>{
         setCoffee(COFFEES.find(coffee => coffee.id === coffeeId))
@@ -56,6 +54,7 @@ const Orders = () => {
         if(error !== null){
             return
         }
+        console.log(updatedUser);
 
         //Keep UI state and server  state in
         storageSave(STORAGE_KEY_USER, updatedUser)

@@ -38,7 +38,6 @@ const LoginForm = () => {
         if (error !== null) {
             setApiError(error)
         }
-
         if(userResponse!=null){
             storageSave(STORAGE_KEY_USER, userResponse)
             setUser(userResponse)
