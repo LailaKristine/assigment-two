@@ -8,8 +8,10 @@ export const orderAdd = async (user, order) =>{
         method: 'PATCH',
         headers: createHeaders,
         body: JSON.stringify({
-            orders: [...user.order, order]
-        })
+            orders: [...user.orders, order]
+        }
+        
+        )
     })
 
     if(!response.ok){

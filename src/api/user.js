@@ -4,7 +4,7 @@ const apiURL = process.env.REACT_APP_API_URL
 
 const checkForUser = async (username) =>{
     try{
-        const response = await fetch( `${apiURL}?username=${username}` )
+        const response = await fetch(`${apiURL}?username=${username}`)
         if(!response.ok){
             throw new Error(`Could not complete request.`)
         }
@@ -19,7 +19,7 @@ const checkForUser = async (username) =>{
 
 const createUser = async (username) =>{
     try{
-        const response = fetch(apiURL,{
+        const response = await fetch(apiURL,{
             method: 'POST',
             headers: createHeaders(),
             body: JSON.stringify({
@@ -31,6 +31,7 @@ const createUser = async (username) =>{
             throw new Error(`Could not create user with username ` + username)
         }
         const data = await response.json();
+        console.log(username);
         return [null, data]
 
     }catch(error){
@@ -51,14 +52,13 @@ export const loginUser = async (username) =>{
     {
         return [null, user.pop()]
     }
-
     return await createUser(username);
+    
 }
 
 export const userById = async (userId) =>{
     try{
         const response = await fetch(`${apiURL}/${userId}`)
-
         if(!response.ok){
             throw new Error("Could not fetch user")
         }

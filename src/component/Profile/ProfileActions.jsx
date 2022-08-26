@@ -1,17 +1,20 @@
-import { Link } from "react-router-dom"
+import { Link, Navigate } from "react-router-dom"
 import { orderClearHistory } from "../../api/order";
 import { STORAGE_KEY_USER } from "../../const/storageKeys";
 import { useUser } from "../../context/UserContext";
 import { storageDelete, storageSave } from "../../utils/storage";
+import { useNavigate } from "react-router-dom"
 
 const ProfileActions = () =>{
 
     const { user, setUser } = useUser();
+    const navigate = useNavigate();
 
     const handleLogoutClick = ( ) =>{
         if(window.confirm('Are you sure?')){
             storageDelete(STORAGE_KEY_USER)
             setUser(null)
+            navigate("/")
         }
     }
 
