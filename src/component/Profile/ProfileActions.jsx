@@ -1,20 +1,14 @@
-import { Link, Navigate } from "react-router-dom"
 import { orderClearHistory } from "../../api/order";
-import { STORAGE_KEY_USER } from "../../const/storageKeys";
 import { useUser } from "../../context/UserContext";
 import { storageDelete, storageSave } from "../../utils/storage";
-import { useNavigate } from "react-router-dom"
 
 const ProfileActions = () =>{
-
     const { user, setUser } = useUser();
-    const navigate = useNavigate();
 
     const handleLogoutClick = ( ) =>{
         if(window.confirm('Are you sure?')){
-            storageDelete(STORAGE_KEY_USER)
+            storageDelete("user")
             setUser(null)
-            navigate("/")
         }
     }
 
@@ -31,19 +25,18 @@ const ProfileActions = () =>{
 
         const updatedUser ={
             ...user,
-            orders:[]
-        }
+            translations:[],
+        };
 
-        storageSave(STORAGE_KEY_USER,updatedUser)
+        storageSave("user", updatedUser)
         setUser(updatedUser)
     }
 
     return (
-        <ul>
-            <li><Link to="/orders"> Orders</Link></li>
+        <>
             <li><button onClick={handleClearHistoryClick}>Clear history</button></li>
             <li><button onClick={handleLogoutClick}>Logout</button></li>
-        </ul>
+        </>
     )
 }
 export default ProfileActions

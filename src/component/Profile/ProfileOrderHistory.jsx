@@ -1,14 +1,12 @@
-import { useUser } from "../../context/UserContext"
 import ProfileOrderHistoryItem from "./ProfileOrderHistoryItem"
 
-const ProfileOrderHistory = ({order}) =>{
-    const {user} = useUser();
+const ProfileOrderHistory = ({words}) =>{
+
+   const wordsHistory = words?.map((words,index) =>(
+    <ProfileOrderHistoryItem key={index + "-" + words} words={words}/>
+    ))
     return (
-        <section>
-            <h4>Your order history </h4>
-                { user.order && user.orders.map(
-        (order,index) => <ProfileOrderHistoryItem key={index + '-' + order} item={order}/>)}
-        </section>
+        <ul>{wordsHistory}</ul>
     )
 }
 export default ProfileOrderHistory

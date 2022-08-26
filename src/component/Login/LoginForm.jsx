@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form"
 import { loginUser } from "../../api/user"
 import { storageSave } from "../../utils/storage"
 import { useNavigate } from "react-router-dom"
-import { STORAGE_KEY_USER } from "../../const/storageKeys"
 import { useUser } from "../../context/UserContext"
 
 const usernameConfig = {
@@ -32,14 +31,14 @@ const LoginForm = () => {
 
 
     //Event Handlers
-    const onSubmit = async ({ username }) => {
+    const onSubmit = async ({ username }) => {  
         setLoading(true);
         const [error, userResponse] = await loginUser(username)
         if (error !== null) {
             setApiError(error)
         }
         if(userResponse!=null){
-            storageSave(STORAGE_KEY_USER, userResponse)
+            storageSave("user", userResponse)
             setUser(userResponse)
         }
 

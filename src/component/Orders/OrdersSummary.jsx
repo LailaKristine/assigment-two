@@ -1,13 +1,17 @@
-const OrdersSummary = ({ coffee  }) => {
+import OrdersCoffeeButton from "./OrdersCoffeeButton"
+
+const OrdersSummary = ({ words  }) => {
+
+    const TranslateSentenceArray = Array.from(words)
 
     return (
-        <section>
-            <h4>Order Summary</h4>
+        <fieldset>
+            {/* <h4>Translate Summary</h4> */}
             <div>
-                <img src={coffee.image} alt={coffee.name} width="55" />
+                {TranslateSentenceArray.map((item,index) =>(
+                <OrdersCoffeeButton key={index} letter={item}></OrdersCoffeeButton>))}
             </div>
-            <p>You are ordering a {coffee.name}</p>
-        </section>
+        </fieldset>
     )
 
 }

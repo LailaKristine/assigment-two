@@ -1,4 +1,4 @@
-const ProfileOrderHistoryItem = ({item}) =>{
-    return <li>{item}</li>
+const ProfileOrderHistoryItem = ({words}) =>{
+    return <li>{words}</li>
 }
 export default ProfileOrderHistoryItem

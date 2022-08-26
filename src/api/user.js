@@ -1,5 +1,4 @@
-import { createHeaders} from  './index'
-
+import { createHeaders} from  './index';
 const apiURL = process.env.REACT_APP_API_URL
 
 const checkForUser = async (username) =>{
@@ -24,20 +23,21 @@ const createUser = async (username) =>{
             headers: createHeaders(),
             body: JSON.stringify({
                 username,
-                orders: []
+                translations: []
             })  
         })
         if(!response.ok){
             throw new Error(`Could not create user with username ` + username)
         }
         const data = await response.json();
-        console.log(username);
         return [null, data]
 
     }catch(error){
         return [error.message, []]
+        
 
     }
+    
 
 }
 
