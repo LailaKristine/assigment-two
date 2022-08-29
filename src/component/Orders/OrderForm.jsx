@@ -10,7 +10,7 @@ const OrderForm =({onOrder}) =>{
     return(
         <form onSubmit={ handleSubmit(onSubmit) }>
         <fieldset>
-            <label htmlFor="order-notes">Translation </label>
+            <label htmlFor="orderNotes">Translation </label>
             <input type="text" {...register('orderNotes')}
              placeholder="Hello" />
         </fieldset>

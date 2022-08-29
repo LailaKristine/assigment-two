@@ -4,6 +4,7 @@ import withAuth from "../../hoc/withAuth"
 import { storageSave } from "../../utils/storage"
 import OrderForm from "../Orders/OrderForm"
 import OrdersSummary from "../Orders/OrdersSummary"
+
 const Orders = () => {
 
     const { user, setUser } = useUser()
@@ -44,7 +45,7 @@ const Orders = () => {
                 <OrdersSummary words={user.orders[user.orders.length-1]}/>
             )}
              {!user.orders.length &&(
-                <OrdersSummary words={"Write a Word"}/>)}
+                <OrdersSummary words={""}/>)}
             </section>
 
         </>
