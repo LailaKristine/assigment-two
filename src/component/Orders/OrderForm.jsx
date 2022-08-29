@@ -5,12 +5,12 @@ const OrderForm =({onOrder}) =>{
 
     const {register, handleSubmit} = useForm()
 
-    const onSubmit = ({orderNotes}) =>{onOrder(orderNotes)}
+    const onSubmit = (orderNotes) =>{onOrder(orderNotes)}
     
     return(
         <form onSubmit={ handleSubmit(onSubmit) }>
         <fieldset>
-            <label>Write</label>
+            <label htmlFor="order-notes">Translation </label>
             <input type="text" {...register('orderNotes')}
              placeholder="Hello" />
         </fieldset>

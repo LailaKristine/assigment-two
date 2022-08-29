@@ -41,9 +41,9 @@ const Orders = () => {
             <section>
             <p>Translation: </p>
             {user.orders.length &&(
-                <OrdersSummary words={user.translations[user.translations.length-1]}/>
+                <OrdersSummary words={user.orders[user.orders.length-1]}/>
             )}
-             {!user.translations.length &&(
+             {!user.orders.length &&(
                 <OrdersSummary words={"Write a Word"}/>)}
             </section>
 

@@ -8,7 +8,7 @@ export const orderAdd = async (user, order) =>{
         method: 'PATCH',
         headers: createHeaders(),
         body: JSON.stringify({
-            translations: [...user.translations, order]
+            orders: [...user.orders, order]
         }
         
         )
@@ -34,7 +34,7 @@ export const orderClearHistory = async (userId) =>{
             method: 'PATCH',
             headers: createHeaders(),
             body: JSON.stringify({
-                translations:[]
+                orders:[]
             })
         })
 
