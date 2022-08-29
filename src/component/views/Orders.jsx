@@ -7,15 +7,16 @@ import OrdersSummary from "../Orders/OrdersSummary"
 
 const Orders = () => {
 
-    const { user, setUser } = useUser()
+    const { user, setUser } = useUser();
 
     const handleOrderClicked = async (word) => {
         if (!word) {
             alert("Please write something")
             return
         }
-
+        
         const [error, updatedUser] = await orderAdd(user, word.trim)
+       
 
         if (error !== null) {
             return
@@ -29,6 +30,7 @@ const Orders = () => {
 
         console.log("Error", error);
         console.log("updated User", updatedUser);
+    
     }
 
     return (
@@ -45,7 +47,8 @@ const Orders = () => {
                 <OrdersSummary words={user.orders[user.orders.length-1]}/>
             )}
              {!user.orders.length &&(
-                <OrdersSummary words={""}/>)}
+                // {having trouble sending in the input :(  )}
+                <OrdersSummary words={"ohog"}/>)}
             </section>
 
         </>

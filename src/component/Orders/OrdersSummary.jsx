@@ -2,15 +2,18 @@ import OrdersCoffeeButton from "./OrdersCoffeeButton"
 
 const OrdersSummary = ({ words }) => {
 
-    const TranslateSentenceArray = Array.from(words)
-    return (
-        <fieldset>
-            <div>
-                {TranslateSentenceArray.map((item,index) =>(
-                <OrdersCoffeeButton key={index} letter={item}></OrdersCoffeeButton>))}
-            </div>
-        </fieldset>
-    )
+    if(words){
+        const TranslateSentenceArray = Array.from(words)
+        return (
+            <fieldset>
+                <div>
+                    {TranslateSentenceArray.map((item,index) =>(
+                    <OrdersCoffeeButton key={index} letter={item}></OrdersCoffeeButton>))}
+                </div>
+            </fieldset>
+        )
+        
+    }
 
 }
 

@@ -9,6 +9,7 @@ const ProfileActions = () =>{
         if(window.confirm('Are you sure?')){
             storageDelete("user")
             setUser(null)
+
         }
     }
 
@@ -25,7 +26,7 @@ const ProfileActions = () =>{
 
         const updatedUser ={
             ...user,
-            translations:[],
+            orders:[],
         };
 
         storageSave("user", updatedUser)

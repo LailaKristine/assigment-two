@@ -19,7 +19,6 @@ const Profile = () => {
                 setUser(latestUser)
             }
         }
-        findUser();
 
     },[ setUser, user ])
 
