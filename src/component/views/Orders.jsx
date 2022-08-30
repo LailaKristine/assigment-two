@@ -16,9 +16,11 @@ const Orders = () => {
             alert("Please write something")
             return
         }
-        const [error, updatedUser] = await orderAdd(word, word.orderNotes.trim)
+        const [error, updatedUser] = await orderAdd(user, word.orderNotes.trim())
         console.log( word.orderNotes," orders.jsx");
         setTheWord(word.orderNotes);
+
+        
         if (error !== null) {
             return
         }
