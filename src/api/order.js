@@ -5,13 +5,11 @@ const  apiURL = process.env.REACT_APP_API_URL;
 export const orderAdd = async (user, order) =>{
     try{
         const response = await fetch(`${apiURL}/${user.id}`,{
-        method: 'POST',
+        method: 'PATCH',
         headers: createHeaders(),
         body: JSON.stringify({
             orders: [...user.orders, order]
-        }
-        
-        )
+        })
     })
 
     if(!response.ok){
@@ -31,7 +29,7 @@ export const orderAdd = async (user, order) =>{
 export const orderClearHistory = async (userId) =>{
     try{
         const response = await fetch(`${apiURL}/${userId}`,{
-            method: 'POST',
+            method: 'PATCH',
             headers: createHeaders(),
             body: JSON.stringify({
                 orders:[]

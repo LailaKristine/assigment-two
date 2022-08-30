@@ -1,10 +1,9 @@
 import ProfileOrderHistoryItem from "./ProfileOrderHistoryItem"
 
-const ProfileOrderHistory = ({words}) =>{
+const ProfileOrderHistory = ({orders=[]}) =>{
 
-   const wordsHistory = words?.map((words,index) =>(
-    <ProfileOrderHistoryItem key={index + "-" + words} words={words}/>
-    ))
+   const wordsHistory = orders?.map((word,index) =><ProfileOrderHistoryItem key={index + "-" + word} words={word}/>
+    )
     return (
         <ul>{wordsHistory}</ul>
     )
