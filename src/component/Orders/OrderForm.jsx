@@ -5,7 +5,7 @@ const OrderForm =({onOrder}) =>{
 
     const {register, handleSubmit} = useForm()
 
-    const onSubmit = (orderNotes) =>{onOrder(orderNotes)}
+    const onSubmit = (orderNotes) =>{onOrder(orderNotes) }
     
     return(
         <form onSubmit={ handleSubmit(onSubmit) }>

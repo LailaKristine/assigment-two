@@ -1,3 +1,4 @@
+import { useState } from "react"
 import { orderAdd } from "../../api/order"
 import { useUser } from "../../context/UserContext"
 import withAuth from "../../hoc/withAuth"
@@ -8,21 +9,20 @@ import OrdersSummary from "../Orders/OrdersSummary"
 const Orders = () => {
 
     const { user, setUser } = useUser();
+    const [theWord, setTheWord] = useState();
 
     const handleOrderClicked = async (word) => {
         if (!word) {
             alert("Please write something")
             return
         }
-        
-        const [error, updatedUser] = await orderAdd(user, word.trim)
-       
-
+        const [error, updatedUser] = await orderAdd(word, word.orderNotes.trim)
+        console.log( word.orderNotes," orders.jsx");
+        setTheWord(word.orderNotes);
         if (error !== null) {
             return
         }
         console.log(updatedUser);
-
         //Keep UI state and server  state in
         storageSave("user", updatedUser)
         //update context state
@@ -43,12 +43,11 @@ const Orders = () => {
             </section>
             <section>
             <p>Translation: </p>
-            {user.orders.length &&(
-                <OrdersSummary words={user.orders[user.orders.length-1]}/>
+            {theWord !== ""  &&(
+                <OrdersSummary words={ theWord} />
             )}
-             {!user.orders.length &&(
-                // {having trouble sending in the input :(  )}
-                <OrdersSummary words={"ohog"}/>)}
+                {theWord === "" &&(
+                <OrdersSummary words={""}/>)}
             </section>
 
         </>
